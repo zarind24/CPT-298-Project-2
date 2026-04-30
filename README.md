@@ -1,23 +1,66 @@
-# Technical Project Proposal Template
+# Maine Towns ETL Project
 
-This repository contains the required materials for submitting a project proposal
-for upper-level Computer Technology courses and Capstone projects.
+**About:**
 
-## Purpose
-This proposal is used to:
-- Evaluate project fit and scope
-- Assess technical readiness
-- Approve or redirect project direction before implementation begins
+This project loads Maine towns data into a PostgreSQL warehouse.
 
-## Instructions
-1. **Fork this repository** - please name it what you intend on naming your final project as **this will be your project repository**.  You can make this private if you'd like, but you'll need to invite at least myself to it.
-3. Complete the `proposal.md` file.
-4. Commit all changes with clear commit messages
-5. Submit the repository URL via Brightspace if part of an assignment, or send it to me via email or discord message if you are undertaking this for extra credit.
-6. **Do not get started on this project until your proposal has been approved!**
+**The program does 3 steps:**
 
-> Proposals are evaluated on clarity, feasibility, technical understanding, and planning.  While ambition is certainly a factor you need to demonstrate you have the understanding and capacity to complete the project!
+1. Gets the data from the Maine ArcGIS website
+2. Cleans and formats the data
+3. Loads the data into PostgreSQL
 
-## Notes
-- This proposal is considered a *living document* until approval
-- Once approved, scope changes require instructor review as while this readme SHOULD be updated your proposal will live with your final repository in perpetuity!
+It can also run automatically using cron.
+
+**## Tools Used**
+
+* Python
+* PostgreSQL
+* Pandas
+* Requests
+* VS Code
+
+**## Files**
+
+
+src/        Python files
+config/     Database settings
+sql/        SQL table file
+requirements.txt
+README.md
+
+
+**## How to Run**
+Create virtual environment:
+
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+
+Install packages:
+
+
+pip install -r requirements.txt
+
+
+Run project:
+
+
+python -m src.main
+
+
+**## Automation**
+
+Example cron job:
+
+
+0 2 * * * cd /path/to/project && python3 -m src.main
+
+
+**This runs every day at 2:00 AM.**
+
+**## Authors**
+
+Created by Zarin Deane and Hayden Allen
+
